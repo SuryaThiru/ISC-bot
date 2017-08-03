@@ -38,7 +38,7 @@ class Joystick:
 				elif event.type == pygame.JOYBUTTONDOWN and button == self.BACKWARD:
 					# move bot backwards
 					print('bot is moving backward')
-					callback('reverse')
+					callback('backward')
 
 				elif event.type == pygame.JOYBUTTONUP and button == self.BACKWARD:
 					# stop bot
