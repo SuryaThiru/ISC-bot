@@ -15,17 +15,17 @@ class Astroby():
 		self.RF = Motor(14, 15, pwm=True)
 		self.RR = Motor(23, 24, pwm=True)
 
-	def __del__(self):
-		import RPi.GPIO as GPIO
-		GPIO.cleanup()
+	# def __del__(self):
+	# 	import RPi.GPIO as GPIO
+	# 	GPIO.cleanup()
 
 	def LW_forward(self, pwmvalue=1):
 		self.LF.forward(pwmvalue)
 		self.LR.forward(pwmvalue)
 
 	def LW_reverse(self, pwmvalue=1):
-		self.LF.reverse(pwmvalue)
-		self.LR.reverse(pwmvalue)
+		self.LF.backward(pwmvalue)
+		self.LR.backward(pwmvalue)
 
 	def LW_stop(self):
 		self.LF.stop()

@@ -38,8 +38,8 @@ class BotHandler(websocket.WebSocketHandler):
         if message == 'forward':
             self.bot.forward()
             
-        elif message == 'reverse':
-            self.bot.reverse()
+        elif message == 'backward':
+            self.bot.backward()
             
         elif message == 'stop':
             self.bot.stop()
