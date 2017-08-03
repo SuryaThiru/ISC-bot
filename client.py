@@ -17,7 +17,7 @@ def on_close(ws):
 
 
 def send_command(ws, command):
-    cmd_list = ['forward', 'backward', 'right', 'left', 'stop']
+    cmd_list = ['forward', 'reverse', 'right', 'left', 'stop']
 
     if command in cmd_list:
         ws.send(command)
@@ -29,7 +29,7 @@ def on_open(ws):
     def run():
         # ws.send('client: opened connection')
 
-        joypad.handle_que(lambda cmd: send_command(ws, cmd))
+        joypad.run_joypad_event_loop(lambda cmd: send_command(ws, cmd))
 
         ws.close()
         print('thread terminating...')
