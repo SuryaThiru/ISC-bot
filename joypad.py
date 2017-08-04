@@ -12,9 +12,16 @@ class Joystick:
 		self.j = pygame.joystick.Joystick(0)
 		self.j.init()
 
-		#buttons and their functions
+		# buttons and their functions
 		self.FORWARD = 0
 		self.BACKWARD = 2
+		self.LEFT = 3
+		self.RIGHT = 1
+		self.LFORWARD = 4
+		self.LBACKWARD = 6
+		self.RFORWARD = 5
+		self.RBACKWARD = 7
+		self.TOGGLE_SPEED = 8
 
 	def handle_que(self, callback):
 		"""
@@ -44,6 +51,44 @@ class Joystick:
 					# stop bot
 					print('bot stopped')
 					callback('stop')
+
+				# left set of wheels
+				elif event.type == pygame.JOYBUTTONDOWN and button == self.LFORWARD:
+					print('left wheels forward')
+					callback('lforward')
+
+				elif event.type == pygame.JOYBUTTONUP and button == self.LFORWARD:
+					print('left wheels stop')
+					callback('lstop')
+
+				elif event.type == pygame.JOYBUTTONDOWN and button == self.LBACKWARD:
+					print('left wheels backward')
+					callback('lbackward')
+
+				elif event.type == pygame.JOYBUTTONUP and button == self.LBACKWARD:
+					print('left wheels stop')
+					callback('lstop')
+
+				# right set of wheels
+				elif event.type == pygame.JOYBUTTONDOWN and button == self.RFORWARD:
+					print('right wheels forward')
+					callback('rforward')
+
+				elif event.type == pygame.JOYBUTTONUP and button == self.RFORWARD:
+					print('right wheels stop')
+					callback('rstop')
+
+				elif event.type == pygame.JOYBUTTONDOWN and button == self.RBACKWARD:
+					print('right wheels backward')
+					callback('rbackward')
+
+				elif event.type == pygame.JOYBUTTONUP and button == self.RBACKWARD:
+					print('right wheels stop')
+					callback('rstop')
+
+				elif event.type == pygame.JOYBUTTONDOWN and button == self.TOGGLE_SPEED:
+					print('toggle speed')
+					callback('toggle_speed')
 
 
 def run_joypad_event_loop(callback):

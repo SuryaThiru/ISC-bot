@@ -4,6 +4,7 @@ import _thread as thread
 
 import joypad
 
+
 def on_message(ws, message):
     print(message)
 
@@ -17,7 +18,9 @@ def on_close(ws):
 
 
 def send_command(ws, command):
-    cmd_list = ['forward', 'reverse', 'right', 'left', 'stop']
+    cmd_list = ['forward', 'backward', 'right', 'left', 'stop',
+                'lforward', 'lbackward', 'rforward', 'rbackward',
+                'lstop', 'rstop', 'toggle_speed']
 
     if command in cmd_list:
         ws.send(command)
