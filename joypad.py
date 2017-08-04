@@ -55,7 +55,7 @@ class Joystick:
 				elif event.type == pygame.JOYBUTTONDOWN and button == self.LEFT:
 					# move bot backwards
 					print('bot is turning left')
-					callback('backward')
+					callback('left')
 
 				elif event.type == pygame.JOYBUTTONUP and button == self.LEFT:
 					# stop bot
@@ -65,7 +65,7 @@ class Joystick:
 				elif event.type == pygame.JOYBUTTONDOWN and button == self.RIGHT:
 					# move bot backwards
 					print('bot is turning right')
-					callback('backward')
+					callback('right')
 
 				elif event.type == pygame.JOYBUTTONUP and button == self.RIGHT:
 					# stop bot
