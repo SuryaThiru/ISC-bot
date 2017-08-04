@@ -26,13 +26,13 @@ class Astroby:
 		# 	GPIO.cleanup()
 
 	def LW_forward(self, pwmvalue=None):
-		pwmvalue = self.speed if not pwmvalue else None
+		pwmvalue = self.speed
 
 		self.LF.forward(pwmvalue)
 		self.LR.forward(pwmvalue)
 
 	def LW_backward(self, pwmvalue=None):
-		pwmvalue = self.speed if not pwmvalue else None
+		pwmvalue = self.speed
 
 		self.LF.backward(pwmvalue)
 		self.LR.backward(pwmvalue)
@@ -42,13 +42,13 @@ class Astroby:
 		self.LR.stop()
 
 	def RW_forward(self, pwmvalue=None):
-		pwmvalue = self.speed if not pwmvalue else None
+		pwmvalue = self.speed
 
 		self.RF.forward(pwmvalue)
 		self.RR.forward(pwmvalue)
 
 	def RW_backward(self, pwmvalue=None):
-		pwmvalue = self.speed if not pwmvalue else None
+		pwmvalue = self.speed
 
 		self.RF.backward(pwmvalue)
 		self.RR.backward(pwmvalue)
@@ -59,25 +59,25 @@ class Astroby:
 
 	# control for the wheels together
 	def forward(self, pwmvalue=None):
-		pwmvalue = self.speed if not pwmvalue else None
+		pwmvalue = self.speed
 
 		self.LW_forward(pwmvalue)
 		self.RW_forward(pwmvalue)
 
 	def backward(self, pwmvalue=None):
-		pwmvalue = self.speed if not pwmvalue else None
+		pwmvalue = self.speed
 
 		self.LW_backward(pwmvalue)
 		self.RW_backward(pwmvalue)
 
 	def left(self, pwmvalue=None):
-		pwmvalue = self.speed if not pwmvalue else None
+		pwmvalue = self.speed
 
 		self.LW_backward(pwmvalue)
 		self.RW_forward(pwmvalue)
 
 	def right(self, pwmvalue=None):
-		pwmvalue = self.speed if not pwmvalue else None
+		pwmvalue = self.speed
 
 		self.RW_backward(pwmvalue)
 		self.LW_forward(pwmvalue)
