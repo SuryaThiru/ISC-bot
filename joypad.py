@@ -30,7 +30,10 @@ class Joystick:
 
 		while True:
 			for event in pygame.event.get():
-				button = event.__dict__['button']
+				try:
+					button = event.__dict__['button']
+				except:
+					continue
 
 				if event.type == pygame.JOYBUTTONDOWN and button == self.FORWARD:
 					# move bot forward
