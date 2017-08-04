@@ -52,4 +52,5 @@ def run_client(host_url):
     ws.run_forever()
 
 
-run_client('ws://192.168.43.114:8000/bot')
+# run_client('ws://192.168.43.114:8000/bot')
+run_client('ws://192.168.1.156:8000/bot')
