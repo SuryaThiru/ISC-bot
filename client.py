@@ -41,7 +41,7 @@ def on_open(ws):
 
 
 def run_client(host_url):
-    websocket.enableTrace(True)
+    # websocket.enableTrace(True)
 
     ws = websocket.WebSocketApp(host_url,
                                 on_message=on_message,

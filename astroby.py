@@ -7,16 +7,14 @@ medium = 0.7
 class Astroby:
 	"""
 	all configuration and interface for Astroby
-	L - Left, R - Right, F - Front, R - Rear
+	L - Left, R - Right
 	LW - LeftWheels, RW - RightWheels
 	"""
 
 	def __init__(self):
 		# wheels and their GPIOpins
-		self.LF = Motor(2, 3, pwm=True)
-		self.LR = Motor(17, 27, pwm=True)
-		self.RF = Motor(14, 15, pwm=True)
-		self.RR = Motor(23, 24, pwm=True)
+		self.L = Motor(5, 6, pwm=True)
+		self.R = Motor(19, 26, pwm=True)
 
 		# initial speed
 		self.speed = max
@@ -28,63 +26,57 @@ class Astroby:
 	def LW_forward(self, pwmvalue=None):
 		pwmvalue = self.speed
 
-		self.LF.forward(pwmvalue)
-		self.LR.forward(pwmvalue)
+		self.L.forward(pwmvalue)
 
 	def LW_backward(self, pwmvalue=None):
 		pwmvalue = self.speed
 
-		self.LF.backward(pwmvalue)
-		self.LR.backward(pwmvalue)
+		self.L.backward(pwmvalue)
 
 	def LW_stop(self):
-		self.LF.stop()
-		self.LR.stop()
+		self.L.stop()
 
 	def RW_forward(self, pwmvalue=None):
 		pwmvalue = self.speed
 
-		self.RF.forward(pwmvalue)
-		self.RR.forward(pwmvalue)
+		self.R.forward(pwmvalue)
 
 	def RW_backward(self, pwmvalue=None):
 		pwmvalue = self.speed
 
-		self.RF.backward(pwmvalue)
-		self.RR.backward(pwmvalue)
+		self.R.backward(pwmvalue)
 
 	def RW_stop(self):
-		self.RF.stop()
-		self.RR.stop()
+		self.R.stop()
 
 	# control for the wheels together
 	def forward(self, pwmvalue=None):
 		pwmvalue = self.speed
 
-		self.LW_forward(pwmvalue)
-		self.RW_forward(pwmvalue)
+		self.L_forward(pwmvalue)
+		self.R_forward(pwmvalue)
 
 	def backward(self, pwmvalue=None):
 		pwmvalue = self.speed
 
-		self.LW_backward(pwmvalue)
-		self.RW_backward(pwmvalue)
+		self.L_backward(pwmvalue)
+		self.R_backward(pwmvalue)
 
 	def left(self, pwmvalue=None):
 		pwmvalue = self.speed
 
-		self.LW_backward(pwmvalue)
-		self.RW_forward(pwmvalue)
+		self.L_backward(pwmvalue)
+		self.R_forward(pwmvalue)
 
 	def right(self, pwmvalue=None):
 		pwmvalue = self.speed
 
-		self.RW_backward(pwmvalue)
-		self.LW_forward(pwmvalue)
+		self.R_backward(pwmvalue)
+		self.L_forward(pwmvalue)
 
 	def stop(self):
-		self.LW_stop()
-		self.RW_stop()
+		self.L_stop()
+		self.R_stop()
 
 	def toggle_speed(self):
 		# toggle current speed of astroby
