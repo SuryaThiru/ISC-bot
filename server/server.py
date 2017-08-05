@@ -1,5 +1,7 @@
 import astroby
 
+import serial
+
 from tornado import web
 from tornado import httpserver
 from tornado import websocket
@@ -20,6 +22,9 @@ class BotHandler(websocket.WebSocketHandler):
 
     def open(self):
         self.bot = astroby.Astroby()
+
+        self.ser = serial.Serial('', 9600)
+
         print('=' * 25)
         print('connection established')
         print('=' * 25)
@@ -34,45 +39,7 @@ class BotHandler(websocket.WebSocketHandler):
 
     def execute_command(self, message):
         # control for the wheels together
-        if message == 'forward':
-            self.bot.forward()
-
-        elif message == 'backward':
-            self.bot.backward()
-
-        elif message == 'stop':
-            self.bot.stop()
-
-        elif message == 'left':
-            self.bot.left()
-
-        elif message == 'right':
-            self.bot.right()
-
-        # control for wheel sets
-        elif message == 'lforward':
-            self.bot.LW_forward()
-
-        elif message == 'lbackward':
-            self.bot.LW_backward()
-
-        elif message == 'lstop':
-            self.bot.LW_stop()
-
-        elif message == 'rforward':
-            self.bot.RW_forward()
-
-        elif message == 'rbackward':
-            self.bot.RW_backward()
-
-        elif message == 'rstop':
-            self.bot.RW_stop()
-
-        elif message == 'toggle_speed':
-            self.bot.toggle_speed()
-
-        else:
-            self.write_message('server: undefined command')
+        self.ser.write(message)
 
 
 class Application(web.Application):
