@@ -3,7 +3,6 @@ from gpiozero import Motor
 max = 1
 medium = 0.7
 
-
 class Astroby:
 	"""
 	all configuration and interface for Astroby
@@ -18,10 +17,6 @@ class Astroby:
 
 		# initial speed
 		self.speed = max
-
-		# def __del__(self):
-		# 	import RPi.GPIO as GPIO
-		# 	GPIO.cleanup()
 
 	def LW_forward(self, pwmvalue=None):
 		pwmvalue = self.speed
