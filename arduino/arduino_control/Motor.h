@@ -18,12 +18,12 @@ Motor::Motor(int val1, int val2) : inp1(val1), inp2(val2) {
 	pinMode(inp2, OUTPUT);
 }
 
-void Motor::forward(int pwm=1) {
+void Motor::forward(float pwm=1) {
 	analogWrite(inp1, pwm * 255);
 	analogWrite(inp2, 0);	
 }
 
-void Motor::backward(int pwm=1) {
+void Motor::backward(float pwm=1) {
 	analogWrite(inp2, pwm * 255);
 	analogWrite(inp1, 0);
 }
