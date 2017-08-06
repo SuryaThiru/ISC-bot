@@ -7,8 +7,8 @@ class Motor
 	public:
 		Motor(int val1, int val2);
 	
-		void forward(int pwm);
-		void backward(int pwm);
+		void forward(float pwm);
+		void backward(float pwm);
 		void stop();
 };
 

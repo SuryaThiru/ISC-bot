@@ -16,7 +16,6 @@ void loop()
 	if (Serial.available() > 0)
 		command = Serial.readString();
 
-
 	if (command == "forward")
 		bot.forward();
 	else if (command == "backward")

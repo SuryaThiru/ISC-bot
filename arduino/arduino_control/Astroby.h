@@ -1,27 +1,27 @@
 #include "Motor.h"
 
-int max = 1;
-int med = 0.75;
+float max = 1;
+float med = 0.60;
 
 class Astroby
 {
 	private:
-		int speed;
+		float speed;
 		Motor l, r;
 
 	public:
 		Astroby();
 
-		void forward(int pwm);
-		void backward(int pwm);
+		void forward(float pwm);
+		void backward(float pwm);
 		void stop();
 
-		void lforward(int pwm);
-		void lbackward(int pwm);
+		void lforward(float pwm);
+		void lbackward(float pwm);
 		void lstop();
 
-		void rforward(int pwm);
-		void rbackward(int pwm);
+		void rforward(float pwm);
+		void rbackward(float pwm);
 		void rstop();
 
 		void toggle_speed();
@@ -29,9 +29,9 @@ class Astroby
 
 
 // class definitions
-Astroby::Astroby() : speed(1), l(Motor(8, 9)), r(Motor(10, 11)) {}
+Astroby::Astroby() : speed(1), l(Motor(5, 6)), r(Motor(10, 11)) {}
 
-void Astroby::forward(int pwm = 0) {
+void Astroby::forward(float pwm = 0) {
 	if (!pwm)
 		pwm = speed;
 
@@ -39,7 +39,7 @@ void Astroby::forward(int pwm = 0) {
 	r.forward(pwm);
 }
 
-void Astroby::backward(int pwm = 0) {
+void Astroby::backward(float pwm = 0) {
 	if (!pwm)
 		pwm = speed;
 
@@ -52,14 +52,14 @@ void Astroby::stop() {
 	r.stop();
 };
 
-void Astroby::lforward(int pwm = 0) {
+void Astroby::lforward(float pwm = 0) {
 	if (!pwm)
 		pwm = speed;
 
 	l.forward(pwm);
 }
 
-void Astroby::lbackward(int pwm = 0) {
+void Astroby::lbackward(float pwm = 0) {
 	if (!pwm)
 		pwm = speed;
 
@@ -70,14 +70,14 @@ void Astroby::lstop() {
 	l.stop();
 };
 
-void Astroby::rforward(int pwm = 0) {
+void Astroby::rforward(float pwm = 0) {
 	if (!pwm)
 		pwm = speed;
 
 	r.forward(pwm);
 }
 
-void Astroby::rbackward(int pwm = 0) {
+void Astroby::rbackward(float pwm = 0) {
 	if (!pwm)
 		pwm = speed;
 	
